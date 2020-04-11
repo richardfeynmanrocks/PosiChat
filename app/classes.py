@@ -37,5 +37,9 @@ class Database:
 		'''Gets entries in [index1, index2)'''
 		return self.database[index1:index2]
 
+	def get_last_n_entries(self, n):
+		'''Gets the last n entries.'''
+		return self.database[max(0, self.size-100):]
+
 	def get_size(self):
 		return self.size

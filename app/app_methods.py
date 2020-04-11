@@ -10,11 +10,12 @@ def on_message():
 		content = post_data.get('content')
 		sendtime = post_data.get('sendtime')
 		recvtime = time.time()
-		app.database['messages'].add_entry((uname, content, sendtime, recvtime))
+		app.databases['messages'].add_entry((uname, content, sendtime, recvtime))
 		return 200
 	except:
 		return 500
 
 @app.route('/retrieve_message', methods=['POST'])
 def retrieve_message():
-	
+	'''Send back the last 100 messages'''
+	app.databases['messages'].get_last_n_entries(100)
