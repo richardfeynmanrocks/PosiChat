@@ -1,7 +1,8 @@
 from flask import Flask
-from app_methods import *
 
-app = Flask(__name__)
+app = Flask(__name__) #Declare before the next import statement to solve import errors.
+
+from app_methods import *
 
 def run(*args, **kwargs):
 	app.run(*args, **kwargs)
